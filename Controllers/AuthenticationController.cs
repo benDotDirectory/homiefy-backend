@@ -14,6 +14,8 @@ namespace homiefy_backend.Controllers
          * This user will be authenticated with scopes necessary for queueing music, etc
          */
 
+        [Route("/
+
         [HttpGet(Name = "GetTest")]
         public string Get()
         {

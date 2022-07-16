@@ -3,7 +3,7 @@
 Backend for homiefy
 
 ## homiefy
-homiefy is a tool to manage group queues for spotify.'
+homiefy is a tool to manage group queues for spotify.
 
 ## this project
 this project is the backend, written in asp.net core.
