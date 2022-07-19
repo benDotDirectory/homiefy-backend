@@ -48,11 +48,23 @@ namespace homiefy_backend.Services
         /*
          * Add a song to the queue
          */
+        public async Task<bool> AddToQueue(string songUri)
+        {
+            return await _spotify.Player.AddToQueue(new PlayerAddToQueueRequest(songUri));
+        }
 
         /*
-         * Remove a song from the queue
+         * Search a query and return the results
          */
-
+        public async Task<SearchResponse> Search(string searchTerm)
+        {
+            // @TODO validate searchTerm
+            // @TODO support searching songs, artists, etc
+            SearchRequest req = new SearchRequest(query: searchTerm, type: SearchRequest.Types.Track);
+            SearchResponse resp = await _spotify.Search.Item(req);
+            return resp;
+        }
+        
 
 
     }

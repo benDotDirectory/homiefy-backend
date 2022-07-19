@@ -17,7 +17,8 @@ namespace homiefy_backend.Controllers
         private readonly ISpotifyService _spotifyService;
         private readonly IMapper _mapper;
 
-        public SpotifyController(ISpotifyService spotifyService, IMapper mapper)        {
+        public SpotifyController(ISpotifyService spotifyService, IMapper mapper)
+        {
             _spotifyService = spotifyService;
             _mapper = mapper;
         }
@@ -38,6 +39,28 @@ namespace homiefy_backend.Controllers
             var authResult = _mapper.Map<AuthorizationResult, AuthorizationResultResource>(result);
 
             return Ok(JsonConvert.SerializeObject(authResult));
+        }
+
+        /*
+         * Adds a song to the queue
+         */
+        [HttpPost("add-to-queue")]
+        public async Task<IActionResult> AddToQueue(string uri)
+        {
+            var result = await _spotifyService.AddToQueue(uri);
+
+            if (!result) return StatusCode(500, $"{Values.FailedToAddToQueue}\nURI: {uri}");
+            else return Ok("Add song to queue.");
+        }
+
+        /*
+         * Searches a track using spotify api and returns results.
+         */
+        [HttpGet("search-track")]
+        public async Task<IActionResult> SearchTrack(string query)
+        {
+            var result = await _spotifyService.Search(query);
+            return Ok(JsonConvert.SerializeObject(result));
         }
     }
 }
