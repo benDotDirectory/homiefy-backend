@@ -10,5 +10,6 @@
     {
         public static String FailedToGetAuthorizationUrl = "Failed to get Authorization URL from Spotify API.";
         public static String UserIsNotAuthorized = "User is not authorized to use this application with Spotify API.";
+        public static string FailedToAddToQueue = "Failed to add song to queue";
     }
 }
