@@ -1,6 +1,6 @@
-﻿namespace homiefy_backend.Domain.Models
+﻿namespace homiefy_backend.Resources
 {
-    public class AuthorizationResult
+    public class AuthorizationResultResource
     {
         public bool AuthenticationSuccess;
 

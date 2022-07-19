@@ -15,3 +15,4 @@ namespace homiefy_backend
         public static List<string> HostUserScopes = new List<string> { Scopes.UserModifyPlaybackState };
     }
 }
+ 

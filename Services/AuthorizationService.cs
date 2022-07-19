@@ -1,4 +1,5 @@
-﻿using homiefy_backend.Services.Interfaces;
+﻿using homiefy_backend.Clients;
+using homiefy_backend.Services.Interfaces;
 using homiefy_backend.Domain.Models;
 using homiefy_backend.Persistence.Repositories.Interfaces;
 
@@ -45,6 +46,9 @@ namespace homiefy_backend.Services
             return new AuthorizationUrlResponse { AuthorizationUrl = request.ToUri().ToString() };
         }
 
+        /*
+         * 
+
         // ========================================================================================================================================================================================================
 
         /*
@@ -60,7 +64,8 @@ namespace homiefy_backend.Services
 
             var config = SpotifyClientConfig.CreateDefault().WithToken(token.AccessToken, token.TokenType);
             //var config = SpotifyClientConfig.CreateDefault().WithAuthenticator(new AuthorizationCodeAuthenticator(_hostClientId, _hostClientSecret, token));
-            _spotifyHostUser = new SpotifyClient(config);
+            //_spotifyHostUser = new SpotifyClient(config);
+            GlobalSpotifyClient.Spotify = new SpotifyClient(config); // @todo do this better
         }
 
         private async Task OnErrorRecieved(object sender, string error, string state)
